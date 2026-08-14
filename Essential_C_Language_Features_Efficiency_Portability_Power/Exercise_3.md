@@ -1,0 +1,10 @@
+# Why C language require a compiler rather than an interpreter?
+
+1.  C works close to hardware, so it must translate code into CPU-specific machine instructions, but an interpreter would need to simulate the entire CPU and memory model, making execution extremely slow.
+2.  Static type checking is required, meaning all data types, sizes, and layouts must be known before execution, but in an interpreter, runtime data type deduction is impossible because C requires strict static type sizes in advance before execution.
+3.  Pointer arithmetic depends on real memory addresses, which only a compiler can convert into correct machine-level offsets, but in an interpreter, it requires virtual memory simulation, and C pointer arithmetic depends on real-time memory layout not on simulation-based.
+4.  Direct memory access must be executed on actual RAM, but in an interpreter, virtual memory simulation is required to simulate every pointer step. Direct memory access cannot be interpreted properly on the virtual memory and requires actual memory to do so.
+5.  Preprocessing in C (#include, #define, macros) requires a dedicated translation phase before execution, and if an interpreter is used, the C preprocessor cannot work at runtime, to break macros and header inclusions.
+6.  Linking is essential in C to combine multiple C program files and libraries into a single executable, but the interpreter cannot perform linking because it does not support multi-file linking.
+7.  C can detect many errors during compile time when the compiler is used, but in the interpreter, the same errors appear during runtime. Compile time checks prevent crashes during runtime and provide leverage to resolve the errors before execution.
+8.  C was built to replace assembly language by offering speed, direct hardware access, manual memory control, and compile time optimization. Interpreting C language would remove all of these benefits, making it behave like a slow, high-level scripting language.

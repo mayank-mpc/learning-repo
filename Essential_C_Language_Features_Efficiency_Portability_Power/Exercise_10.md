@@ -1,0 +1,12 @@
+# How does the C language maintain backwards compatibility?
+
+1.  The C language prioritizes forward compatibility, ensuring old code usually works with new compilers.
+2.  Additive Growth: New standards usually add features rather than remove or change existing ones.
+3.  Deprecation Process: Obsolete features (like the gets() function) are marked "obsolete" in one standard before potential removal in the next or much later standards, giving developers enough time to adapt.
+4.  Compiler Flags: Compilers provide flags (e.g., -std=c89, -std=c99) to explicitly choose which version of the standard to follow.
+5.  Strictness Increased: While valid C90 code works in C17, some overly relaxed old practices were officially forbidden in newer standards (e.g., implicit int type declarations were removed in C99).
+6.  Codifying Existing Practice: The C standards committee often standardizes features that are already widely implemented as compiler extensions (e.g., // comments in C99, long long int data type). This ensures that common code practices become part of the official standard, making the transition between standards smoother.
+7.  Minimizing "Quiet" Changes: The committee aims to avoid "quiet changes" that alter the meaning of existing, valid code without the compiler generating an error or warning. Changes that do break compatibility (like removing implicit int) are done with careful consideration and typically require a diagnostic message from modern compilers, making issues easy to detect and fix.
+8.  Predictable Behavior (Defined, Unspecified, Undefined): The standard explicitly categorizes behaviors as defined, unspecified, or undefined. This clarity helps developers write portable, standard-compliant code that behaves consistently across different compilers and platforms, rather than relying on compiler-specific quirks.
+9.  Platform Independence: A major goal of the standard is to facilitate portability. A standard-compliant C program written with portability in mind can be compiled for a wide variety of platforms with few changes to its source code, meaning old, portable code continues to run on new systems.
+10. Focus on Simplicity: The guiding principle to "keep the language small and simple" means fewer features to potentially conflict or become obsolete over time, contributing to long-term stability.
