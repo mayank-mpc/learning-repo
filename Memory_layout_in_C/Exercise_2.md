@@ -48,14 +48,14 @@
 ## Q8. Declare a 16 MB local array in ```main```. Predict the outcome, check ```ulimit -s```, and explain it. Then connect it to what happens when a FreeRTOS task’s stack is too small.
 
 ### Ans:
-1.
+1. Refer the exercise 7 for the program. Reference [Link](https://www.baeldung.com/linux/ulimit-tutorial)
 
 ## Q9. Simulate a startup routine. Create a ```const``` array acting as “flash” with initial values, a “ram_data” array, and a “ram_bss” array. Write ```fake_reset_handler()``` that copies the data and zeroes the bss before your greenhouse logic runs.
 
 ### Ans:
-1.
+1. Refer the exercise 8 for the program.
 
 ## Q10. Make ```read_sensors``` use a 4 KB local buffer and call it recursively until it crashes. Print the depth reached and estimate the stack size from it.
 
 ### Ans:
-1.
+1. Refer the exercise 9 for the program and the stack depth found is 2027 function executions where the allocated stack for the session was 8192 KB. The stack size was identified using the ```ulimit -s``` command in the terminal.
