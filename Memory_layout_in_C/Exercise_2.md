@@ -58,4 +58,5 @@
 ## Q10. Make ```read_sensors``` use a 4 KB local buffer and call it recursively until it crashes. Print the depth reached and estimate the stack size from it.
 
 ### Ans:
-1. Refer the exercise 9 for the program and the stack depth found is 2027 function executions where the allocated stack for the session was 8192 KB. The stack size was identified using the ```ulimit -s``` command in the terminal.
+1. Refer the exercise 9 for the program.
+2. The last printed value was 8,306,688 bytes, which is 2028 calls × 4096 bytes. ulimit -s reports 8192 KB (8,388,608 bytes), so the buffers alone fill 99% of the stack. The remaining ~81 KB is per-call overhead (return address, saved frame pointer, canary and padding, about 32 bytes × 2028) plus the program’s startup data and printf.
